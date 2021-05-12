@@ -9,7 +9,6 @@ export const HeaderContainer = styled.div`
 `;
 
 export const Logo = styled.img`
-  display: block;
   height: 3.75em;
   width: 4.375em;
 `;
