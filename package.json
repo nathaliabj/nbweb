@@ -11,10 +11,13 @@
     "@svgr/webpack": "^5.5.0",
     "@types/react": "^17.0.5",
     "@types/styled-components": "^5.1.9",
+
     "next": "^10.0.0",
+    "next-react-svg": "1.1.2",
     "react": "17.0.1",
     "react-dom": "17.0.1",
-    "styled-components": "^5.3.0"
+    "styled-components": "^5.3.0",
+    "url-loader": "^4.1.1"
   },
   "resolutions": {
     "styled-components": "^5"

@@ -18,11 +18,20 @@ const GlobalStyle = createGlobalStyle`
         font-display: swap;
     }
 
+    @font-face {
+        font-family: "Visuelt";
+        src: url("/fonts/visuelt/visuelt-light.otf");
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+    }
+
     body {
         display: block;
         width: 100%;
         height: 100vh;
-        background: black;
+        background: #171A22;
+        color: white;
         margin: 0;
         padding: 0;
         font-family: 'Visuelt';

@@ -6,12 +6,17 @@ export const HeaderContainer = styled.div`
   align-items: center;
   width: 100%;
   height: 3.75em;
+  margin-top: 2.5rem;
 `;
 
-export const Logo = styled.img`
-  height: 3.75em;
-  width: 4.375em;
+export const Nb = styled.h1`
+  font-size: 3.1875rem;
+  font-family: Bigilla;
+  color: #dcb3fc;
+  margin: 0;
+  line-height: 3.1875rem;
 `;
+
 export const Icon = styled.img`
   height: 2.5rem;
   width: 2.5rem;

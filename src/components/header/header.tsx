@@ -1,11 +1,11 @@
 import React, { FC } from "react";
-import { HeaderContainer, Logo, Icon, Year} from "./header.sc";
-// import nb from '/nb.svg';
+import { HeaderContainer, Nb, Icon, Year } from "./header.sc";
+
 // import icon from '/icon.svg';
 
 const Header: FC = () => (
   <HeaderContainer>
-    <Logo  />
+    <Nb>NB</Nb>
     <Icon  />
     <Year>© 2021</Year>
   </HeaderContainer>
