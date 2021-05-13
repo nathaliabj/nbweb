@@ -1,18 +1,27 @@
 import styled from "styled-components";
 
+export const LinksContainer = styled.div`
+  width: 100%;
+`;
+
 export const Content = styled.div`
   font-size: 2.5rem;
   line-height: 1.5;
   max-width: 64.875rem;
-  margin: 5rem 0 0 14.5rem;
+  margin-left: 14.5rem;
 `;
 
-export const LinksContainer = styled.div`
-  width: 100%;
-  margin-top: 10.75rem;
+export const LinksWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  max-width: 31.25rem;
 `;
 
-export const SideTitle = styled.h2`
-  font-size: 3.75rem;
-  font-family: Bigilla;
-`;
+export const Link = styled.a`
+  color: white;
+  line-height: 1;
+  text-decoration: none;
+  border-bottom: 3px solid white;
+  margin-bottom: 100px;
+  padding-top: .6rem;
+`

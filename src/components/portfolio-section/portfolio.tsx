@@ -1,5 +1,6 @@
 import React, { FC } from "react";
-import { PortfolioContainer, Content, SideTitle } from "./portfolio.sc";
+import { PortfolioContainer, Content } from "./portfolio.sc";
+import SideTitle from '../side-title/side-title';
 
 const Portfolio: FC = () => (
   <PortfolioContainer>

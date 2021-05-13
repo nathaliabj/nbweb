@@ -27,3 +27,11 @@ export const Wrapper = styled.div`
   left: 50%;
   transform: translateX(-50%);
 `;
+
+export const Trigger = styled.span`
+  border-bottom: 1px solid white;
+
+  &:hover {
+    cursor: pointer;
+  }
+`
