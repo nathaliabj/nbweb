@@ -17,9 +17,13 @@ export const Nb = styled.h1`
   line-height: 3.1875rem;
 `;
 
-export const Icon = styled.img`
-  height: 2.5rem;
-  width: 2.5rem;
+export const ModeTrigger = styled.button`
+  border: none;
+  background: none;
+  color: white;
+  font-size: 2.5rem;
+  padding: 0;
+  font-family: Bigilla;
 `;
 
 export const Year = styled.div`

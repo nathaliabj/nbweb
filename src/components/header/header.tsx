@@ -1,12 +1,10 @@
 import React, { FC } from "react";
-import { HeaderContainer, Nb, Icon, Year } from "./header.sc";
-
-// import icon from '/icon.svg';
+import { HeaderContainer, Nb, ModeTrigger, Year } from "./header.sc";
 
 const Header: FC = () => (
   <HeaderContainer>
     <Nb>NB</Nb>
-    <Icon  />
+    <ModeTrigger>//</ModeTrigger>
     <Year>© 2021</Year>
   </HeaderContainer>
 );
