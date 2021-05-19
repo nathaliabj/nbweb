@@ -22,7 +22,7 @@ const GlobalStyle = createGlobalStyle`
         font-family: "Visuelt";
         src: url("/fonts/visuelt/visuelt-light.otf");
         font-style: normal;
-        font-weight: 400;
+        font-weight: 300;
         font-display: swap;
     }
 
@@ -35,6 +35,7 @@ const GlobalStyle = createGlobalStyle`
         margin: 0;
         padding: 0;
         font-family: 'Visuelt';
+        overflow-x: hidden;
     }
 
 `;
