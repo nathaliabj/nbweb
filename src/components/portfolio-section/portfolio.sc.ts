@@ -5,7 +5,7 @@ export const PortfolioContainer = styled.div`
   position: relative;
 `;
 
-export const Content = styled.div`
+export const Content = styled.div<{ $loaded: boolean }>`
   font-size: 2.5rem;
   line-height: 1.5;
   margin-left: 14.5rem;

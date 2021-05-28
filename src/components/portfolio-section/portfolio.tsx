@@ -25,111 +25,112 @@ const DATA = [
 
 const Portfolio: FC = () => {
   const [shifting, setShifting] = useState<boolean>(false);
+  const [loaded, setLoaded] = useState<boolean>(false);
   const contentRef = useRef<HTMLDivElement>(null);
   const carouselRef = useRef<HTMLDivElement>(null);
   const docsRef = useRef<HTMLDivElement>(null);
   const academyRef = useRef<HTMLDivElement>(null);
   const projects = [docsRef, academyRef];
 
-
   const slide = () => {
     let posX1 = 0;
-      let posX2 = 0;
-      let posInitial;
-      let posFinal;
-      let threshold = 100;
-      let slides = projects;
-      let slidesLength = slides.length;
-      let slideSize = docsRef.current?.offsetWidth;
-      let firstSlide = docsRef.current;
-      let lastSlide = slides[slidesLength - 1].current;
-      let cloneFirst = firstSlide.cloneNode(true);
-      let cloneLast = lastSlide.cloneNode(true);
-      let index = 0;
-      let allowShift = true;
+    let posX2 = 0;
+    let posInitial;
+    let posFinal;
+    let threshold = 100;
+    let slides = projects;
+    let slidesLength = slides.length;
+    let slideSize = docsRef.current?.offsetWidth;
+    let firstSlide = docsRef.current;
+    let lastSlide = slides[slidesLength - 1].current;
+    let cloneFirst = firstSlide.cloneNode(true);
+    let cloneLast = lastSlide.cloneNode(true);
+    let index = 0;
+    let allowShift = true;
 
-      const dragStart = (e) => {
-        e = e || window.event;
-        e.preventDefault();
-        posInitial = carouselRef.current.offsetLeft;
+    const dragStart = (e) => {
+      e = e || window.event;
+      e.preventDefault();
+      posInitial = carouselRef.current.offsetLeft;
 
-        if (e.type == "touchstart") {
-          posX1 = e.touches[0].clientX;
-        } else {
-          posX1 = e.clientX;
-          document.onmouseup = dragEnd;
-          document.onmousemove = dragAction;
-        }
-      };
+      if (e.type == "touchstart") {
+        posX1 = e.touches[0].clientX;
+      } else {
+        posX1 = e.clientX;
+        document.onmouseup = dragEnd;
+        document.onmousemove = dragAction;
+      }
+    };
 
-      const dragAction = (e) => {
-        e = e || window.event;
+    const dragAction = (e) => {
+      e = e || window.event;
 
-        if (e.type == "touchmove") {
-          posX2 = posX1 - e.touches[0].clientX;
-          posX1 = e.touches[0].clientX;
-        } else {
-          posX2 = posX1 - e.clientX;
-          posX1 = e.clientX;
-        }
-        carouselRef.current.style.left =
-          carouselRef.current.offsetLeft - posX2 + "px";
-      };
+      if (e.type == "touchmove") {
+        posX2 = posX1 - e.touches[0].clientX;
+        
+        posX1 = e.touches[0].clientX;
+      } else {
+        posX2 = posX1 - e.clientX;
+        posX1 = e.clientX;
+      }
+      carouselRef.current.style.left =
+        carouselRef.current.offsetLeft - posX2 + "px";
+    };
 
-      const dragEnd = (e) => {
-        posFinal = carouselRef.current.offsetLeft;
-        if (posFinal - posInitial < -threshold) {
-          shiftSlide(1, "drag");
-        } else if (posFinal - posInitial > threshold) {
-          shiftSlide(-1, "drag");
-        } else {
-          carouselRef.current.style.left = posInitial + "px";
-        }
+    const dragEnd = (e) => {
+      posFinal = carouselRef.current.offsetLeft;
+      if (posFinal - posInitial < -threshold) {
+        shiftSlide(1, "drag");
+      } else if (posFinal - posInitial > threshold) {
+        shiftSlide(-1, "drag");
+      } else {
+        carouselRef.current.style.left = posInitial + "px";
+      }
 
-        document.onmouseup = null;
-        document.onmousemove = null;
-      };
+      document.onmouseup = null;
+      document.onmousemove = null;
+    };
 
-      const shiftSlide = (dir, action) => {
-        setShifting(true);
+    const shiftSlide = (dir, action) => {
+      setShifting(true);
 
-        if (allowShift) {
-          if (!action) {
-            posInitial = carouselRef.current.offsetLeft;
-          }
-
-          if (dir == 1) {
-            carouselRef.current.style.left = posInitial - slideSize + "px";
-            index++;
-          } else if (dir == -1) {
-            carouselRef.current.style.left = posInitial + slideSize + "px";
-            index--;
-          }
+      if (allowShift) {
+        if (!action) {
+          posInitial = carouselRef.current.offsetLeft;
         }
 
-        allowShift = false;
-      };
-
-      const checkIndex = () => {
-        setShifting(false);
-
-        if (index == -1) {
-          carouselRef.current.style.left = -(slidesLength * slideSize) + "px";
-          index = slidesLength - 1;
+        if (dir == 1) {
+          carouselRef.current.style.left = posInitial - slideSize + "px";
+          index++;
+        } else if (dir == -1) {
+          carouselRef.current.style.left = posInitial + slideSize + "px";
+          index--;
         }
+      }
 
-        if (index == slidesLength) {
-          carouselRef.current.style.left = -(1 * slideSize) + "px";
-          index = 0;
-        }
+      allowShift = false;
+    };
 
-        allowShift = true;
-      };
+    const checkIndex = () => {
+      setShifting(false);
+
+      if (index == -1) {
+        carouselRef.current.style.left = -(slidesLength * slideSize) + "px";
+        index = slidesLength - 1;
+      }
+
+      if (index == slidesLength) {
+        carouselRef.current.style.left = -(1 * slideSize) + "px";
+        index = 0;
+      }
+
+      allowShift = true;
+    };
 
     // Clone first and last slide
     carouselRef.current.appendChild(cloneFirst);
     carouselRef.current.insertBefore(cloneLast, firstSlide);
-    contentRef.current.classList.add("loaded");
+    setLoaded(true);
 
     // Mouse and Touch events
     carouselRef.current.onmousedown = dragStart;
@@ -141,17 +142,21 @@ const Portfolio: FC = () => {
 
     // Transition events
     carouselRef.current.addEventListener("transitionend", checkIndex);
-
   };
 
-  if (contentRef.current && carouselRef.current && docsRef.current && academyRef.current) {
+  if (
+    contentRef.current &&
+    carouselRef.current &&
+    docsRef.current &&
+    academyRef.current
+  ) {
     slide();
   }
-  
+
   return (
     <PortfolioContainer>
       <SideTitle>WRK</SideTitle>
-      <Content ref={contentRef}>
+      <Content ref={contentRef} $loaded={loaded}>
         <Projects>
           <Carousel $shifting={shifting} ref={carouselRef}>
             <Project draggable="true" ref={docsRef}>
