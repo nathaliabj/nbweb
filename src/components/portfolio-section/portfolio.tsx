@@ -1,13 +1,15 @@
-import React, { FC, useState, useRef, useEffect } from "react";
+import React, { FC } from "react";
 import {
   PortfolioContainer,
-  Content,
-  Project,
   Title,
   Image,
-  Carousel,
-  Projects,
+  Project,
+  Content,
+  ImageOverlay,
+  ImageContainer,
 } from "./portfolio.sc";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from "react-responsive-carousel";
 import SideTitle from "../side-title/side-title";
 
 const DATA = [
@@ -23,156 +25,34 @@ const DATA = [
   },
 ];
 
+const carouselProps = {
+  emulateTouch: true,
+  swipeable: true,
+  showIndicators: false,
+  showStatus: false,
+  showArrows: false,
+  autoPlay: false,
+  interval: 36000000,
+};
+
 const Portfolio: FC = () => {
-  const [shifting, setShifting] = useState<boolean>(false);
-  const [loaded, setLoaded] = useState<boolean>(false);
-  const contentRef = useRef<HTMLDivElement>(null);
-  const carouselRef = useRef<HTMLDivElement>(null);
-  const docsRef = useRef<HTMLDivElement>(null);
-  const academyRef = useRef<HTMLDivElement>(null);
-  const projects = [docsRef, academyRef];
-
-  const slide = () => {
-    let posX1 = 0;
-    let posX2 = 0;
-    let posInitial;
-    let posFinal;
-    let threshold = 100;
-    let slides = projects;
-    let slidesLength = slides.length;
-    let slideSize = docsRef.current?.offsetWidth;
-    let firstSlide = docsRef.current;
-    let lastSlide = slides[slidesLength - 1].current;
-    let cloneFirst = firstSlide.cloneNode(true);
-    let cloneLast = lastSlide.cloneNode(true);
-    let index = 0;
-    let allowShift = true;
-
-    const dragStart = (e) => {
-      e = e || window.event;
-      e.preventDefault();
-      posInitial = carouselRef.current.offsetLeft;
-
-      if (e.type == "touchstart") {
-        posX1 = e.touches[0].clientX;
-      } else {
-        posX1 = e.clientX;
-        document.onmouseup = dragEnd;
-        document.onmousemove = dragAction;
-      }
-    };
-
-    const dragAction = (e) => {
-      e = e || window.event;
-
-      if (e.type == "touchmove") {
-        posX2 = posX1 - e.touches[0].clientX;
-        
-        posX1 = e.touches[0].clientX;
-      } else {
-        posX2 = posX1 - e.clientX;
-        posX1 = e.clientX;
-      }
-      carouselRef.current.style.left =
-        carouselRef.current.offsetLeft - posX2 + "px";
-    };
-
-    const dragEnd = (e) => {
-      posFinal = carouselRef.current.offsetLeft;
-      if (posFinal - posInitial < -threshold) {
-        shiftSlide(1, "drag");
-      } else if (posFinal - posInitial > threshold) {
-        shiftSlide(-1, "drag");
-      } else {
-        carouselRef.current.style.left = posInitial + "px";
-      }
-
-      document.onmouseup = null;
-      document.onmousemove = null;
-    };
-
-    const shiftSlide = (dir, action) => {
-      setShifting(true);
-
-      if (allowShift) {
-        if (!action) {
-          posInitial = carouselRef.current.offsetLeft;
-        }
-
-        if (dir == 1) {
-          carouselRef.current.style.left = posInitial - slideSize + "px";
-          index++;
-        } else if (dir == -1) {
-          carouselRef.current.style.left = posInitial + slideSize + "px";
-          index--;
-        }
-      }
-
-      allowShift = false;
-    };
-
-    const checkIndex = () => {
-      setShifting(false);
-
-      if (index == -1) {
-        carouselRef.current.style.left = -(slidesLength * slideSize) + "px";
-        index = slidesLength - 1;
-      }
-
-      if (index == slidesLength) {
-        carouselRef.current.style.left = -(1 * slideSize) + "px";
-        index = 0;
-      }
-
-      allowShift = true;
-    };
-
-    // Clone first and last slide
-    carouselRef.current.appendChild(cloneFirst);
-    carouselRef.current.insertBefore(cloneLast, firstSlide);
-    setLoaded(true);
-
-    // Mouse and Touch events
-    carouselRef.current.onmousedown = dragStart;
-
-    // Touch events
-    carouselRef.current.addEventListener("touchstart", dragStart);
-    carouselRef.current.addEventListener("touchend", dragEnd);
-    carouselRef.current.addEventListener("touchmove", dragAction);
-
-    // Transition events
-    carouselRef.current.addEventListener("transitionend", checkIndex);
-  };
-
-  if (
-    contentRef.current &&
-    carouselRef.current &&
-    docsRef.current &&
-    academyRef.current
-  ) {
-    slide();
-  }
-
   return (
     <PortfolioContainer>
       <SideTitle>WRK</SideTitle>
-      <Content ref={contentRef} $loaded={loaded}>
-        <Projects>
-          <Carousel $shifting={shifting} ref={carouselRef}>
-            <Project draggable="true" ref={docsRef}>
-              <Title href={DATA[0].url} target="__blank">
-                {DATA[0].title}
+      <Content>
+        <Carousel {...carouselProps}>
+          {DATA.map((project) => (
+            <Project>
+              <Title href={project.url} target="__blank">
+                {project.title}
               </Title>
-              <Image src={DATA[0].image} />
+              <ImageContainer>
+                <Image src={project.image} />
+                <ImageOverlay />
+              </ImageContainer>
             </Project>
-            <Project draggable="true" ref={academyRef}>
-              <Title href={DATA[1].url} target="__blank">
-                {DATA[1].title}
-              </Title>
-              <Image src={DATA[1].image} />
-            </Project>
-          </Carousel>
-        </Projects>
+          ))}
+        </Carousel>
       </Content>
     </PortfolioContainer>
   );

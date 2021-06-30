@@ -35,7 +35,25 @@ const GlobalStyle = createGlobalStyle`
         margin: 0;
         padding: 0;
         font-family: 'Visuelt';
-        overflow-x: hidden;
+        /* overflow-x: hidden; */
+    }
+
+    .carousel .slider-wrapper {
+        overflow: visible;
+    }
+    .carousel.carousel-slider {
+        overflow: visible;
+    }
+      .carousel .slide img{
+        background: blue;
+        height: 474px;
+    }
+    .carousel .selected img{
+        background: red;
+        height: 550px;
+    }
+    .carousel .selected img + div {
+        display: none;
     }
 
 `;
