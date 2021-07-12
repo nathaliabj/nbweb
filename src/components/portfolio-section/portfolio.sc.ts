@@ -1,8 +1,8 @@
 import styled, { css } from "styled-components";
 
 export const PortfolioContainer = styled.div`
-  /* max-width: 180%;
-  overflow-x: hidden; */
+
+  overflow-x: hidden; 
 `;
 
 export const Content = styled.div`
@@ -11,8 +11,18 @@ export const Content = styled.div`
   margin-left: 14.5rem;
 `;
 
+export const ImageContainer = styled.div`
+  width: 55.313rem;
+  height: 34.375em;
+  overflow: hidden;
+  height: auto;
+ position: relative;
+`;
+
 export const Image = styled.img`
-  width: 55.3125rem;
+  object-fit: cover;
+  width: 100%;
+  min-height: 100%;
 `;
 
 export const Title = styled.a`
@@ -29,23 +39,18 @@ export const Project = styled.div`
   margin: 0 5rem 0 0;
   cursor: pointer;
   display: flex;
+  text-decoration: none;
   justify-content: space-between;
   align-content: start;
   flex-direction: column;
 `;
 
-export const ImageContainer = styled.div`
-  position: relative;
-`;
-
 export const ImageOverlay = styled.div`
   position: absolute;
   bottom: 0;
-  background: rgb(0, 0, 0);
   background: rgba(0, 0, 0, 0.5); /* Black see-through */
   color: #f1f1f1;
   width: 100%;
   height: 100%;
   opacity: 0.3;
-  color: white;
 `;
