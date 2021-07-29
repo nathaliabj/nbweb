@@ -17,12 +17,13 @@ export const Intro = styled.h1`
   transform: translateY(-50%);
   top: 50%;
   color: white;
-  z-index: 10;
 `;
 
 export const Wrapper = styled.div`
-  z-index: -10;
+  z-index: -1;
   position: absolute;
+  border-radius: 50%;
+  overflow: hidden;
   top: 0;
   left: 50%;
   transform: translateX(-50%);

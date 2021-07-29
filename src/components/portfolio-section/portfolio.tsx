@@ -41,8 +41,8 @@ const Portfolio: FC = () => {
       <SideTitle>WRK</SideTitle>
       <Content>
         <Carousel {...carouselProps}>
-          {DATA.map((project) => (
-            <Project>
+          {DATA.map((project, i) => (
+            <Project key={`portfolio-project-${i}`}>
               <Title href={project.url} target="__blank">
                 {project.title}
               </Title>
