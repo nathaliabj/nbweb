@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-export const PortfolioContainer = styled.div`
+export const PortfolioContainer = styled.section`
 
   overflow-x: hidden; 
 `;

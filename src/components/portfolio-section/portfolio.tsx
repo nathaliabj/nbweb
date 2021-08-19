@@ -47,7 +47,7 @@ const Portfolio: FC = () => {
                 {project.title}
               </Title>
               <ImageContainer>
-                <Image src={project.image} />
+                <Image src={project.image} alt={project.title}/>
                 <ImageOverlay />
               </ImageContainer>
             </Project>

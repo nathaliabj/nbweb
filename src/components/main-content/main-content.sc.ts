@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ContentContainer = styled.div`
+export const ContentContainer = styled.main`
   max-width: 100%;
   height: 548px;
   margin: 3.3125rem auto 0;
@@ -19,6 +19,17 @@ export const Intro = styled.h1`
   color: white;
 `;
 
+export const TextSection = styled.div`
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 0.2em;
+`;
+
+export const TextLine = styled.p`
+  margin: 0;
+  line-height: 1.06em;
+`;
+
 export const Wrapper = styled.div`
   z-index: -1;
   position: absolute;
@@ -35,4 +46,4 @@ export const Trigger = styled.span`
   &:hover {
     cursor: pointer;
   }
-`
+`;

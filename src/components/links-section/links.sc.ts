@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const LinksContainer = styled.div`
+export const LinksContainer = styled.section`
   width: 100%;
 `;
 
