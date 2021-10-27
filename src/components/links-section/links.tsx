@@ -3,7 +3,7 @@ import { LinksContainer, Content, LinksWrapper, Link } from "./links.sc";
 import SideTitle from "../side-title/side-title";
 
 const Links: FC = () => (
-  <LinksContainer>
+  <LinksContainer data-scroll-section>
     <SideTitle>LKS</SideTitle>
     <Content>
       <p>Want to know more or get in touch? You’ve come to the right place.</p>

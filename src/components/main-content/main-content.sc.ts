@@ -38,6 +38,7 @@ export const Wrapper = styled.div`
   top: 0;
   left: 50%;
   transform: translateX(-50%);
+  opacity: 0;
 `;
 
 export const Trigger = styled.span`

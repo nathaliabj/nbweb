@@ -37,7 +37,7 @@ const carouselProps = {
 
 const Portfolio: FC = () => {
   return (
-    <PortfolioContainer>
+    <PortfolioContainer data-scroll-section>
       <SideTitle>WRK</SideTitle>
       <Content>
         <Carousel {...carouselProps}>
@@ -47,7 +47,7 @@ const Portfolio: FC = () => {
                 {project.title}
               </Title>
               <ImageContainer>
-                <Image src={project.image} alt={project.title}/>
+                <Image src={project.image} alt={project.title} />
                 <ImageOverlay />
               </ImageContainer>
             </Project>

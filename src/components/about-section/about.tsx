@@ -1,35 +1,39 @@
-import React, { FC, useEffect, useRef } from "react";
-import { AboutContainer, Content, Link } from "./about.sc";
+import React, { FC, useEffect, useRef, useState } from "react";
+import { AboutContainer, ContentContainer, Link, Text } from "./about.sc";
 import SideTitle from "../side-title/side-title";
-import { animateEntry } from "../../../utils/animate-text";
+import { animateParagraph } from "../../utils/animate-text";
+import { useInView } from "react-intersection-observer";
+
+import SplitText from "../../utils/Split3.min.js";
 
 const AboutMe: FC = () => {
-  const colombiaRef = useRef<HTMLParagraphElement>(null);
-if (typeof window === "undefined") {
-  console.log("Oops, `window` is not defined");
-}
+  const [ref, inView, entry] = useInView({
+    threshold: 0,
+    trackVisibility: false,
+    triggerOnce: true,
+  });
+
+  const textRef1 = useRef();
+  const textRef2 = useRef();
+  const textRef3 = useRef();
 
   useEffect(() => {
-    window.addEventListener("scroll", () => {
-      const position = colombiaRef.current.getBoundingClientRect();
+    if (inView && entry) {
+      const split1 = new SplitText(textRef1.current, { type: "lines" });
+      const split2 = new SplitText(textRef2.current, { type: "lines" });
+      const split3 = new SplitText(textRef3.current, { type: "lines" });
 
-      // // checking whether fully visible
-      // if (position.top >= 0 && position.bottom <= window.innerHeight) {
-      //   animateEntry(colombiaRef.current, 0.1);
-      // }
-
-      // checking for partial visibility
-      if (position.top <= window.innerHeight && position.bottom >= 0) {
-         animateEntry(colombiaRef.current, 0.1);
-      }
-    });
-  }, []);
+      animateParagraph(split1.lines, 0.1);
+      animateParagraph(split2.lines, 0.1);
+      animateParagraph(split3.lines, 0.1);
+    }
+  }, [inView]);
 
   return (
-    <AboutContainer>
+    <AboutContainer data-scroll-section>
       <SideTitle>ABT</SideTitle>
-      <Content>
-        <p ref={colombiaRef}>
+      <ContentContainer ref={ref}>
+        <Text ref={textRef1} $isInView={inView}>
           Originally from{" "}
           <Link
             href="https://www.google.com/search?q=quindio+colombia&source=lnms&tbm=isch&sa=X&ved=2ahUKEwj5yeD2uMXwAhUN2BQKHZ3SA_0Q_AUoAnoECAEQBA&biw=1440&bih=716"
@@ -40,23 +44,23 @@ if (typeof window === "undefined") {
           , I moved to London 7 years ago. Passionate about travel, different
           cultures &amp; food, I entered the tech-scene 3 years ago as I taught
           myself how to code.
-        </p>
-        <p>
+        </Text>
+        <Text ref={textRef2} $isInView={inView}>
           Currently front-end engineering at{" "}
           <Link href="https://tray.io/" target="__blank">
             Tray.io
           </Link>
           , I enjoy creating well crafted experiences with a focus on good
           design.{" "}
-        </p>
-        <p>
+        </Text>
+        <Text ref={textRef3} $isInView={inView}>
           Read my thoughts on{" "}
           <Link href="https://twitter.com/NathaliaBJurado" target="__blank">
             Twitter
           </Link>
           .
-        </p>
-      </Content>
+        </Text>
+      </ContentContainer>
     </AboutContainer>
   );
 };

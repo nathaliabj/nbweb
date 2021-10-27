@@ -8,7 +8,7 @@ import {
   TextLine,
   TextSection,
 } from "./main-content.sc";
-import { animateEntry } from "../../../utils/animate-text";
+import { animateEntry } from "../../utils/animate-text";
 
 const MainContent: FC = () => {
   const [isActive, setIsActive] = useState<boolean>(false);
@@ -49,8 +49,14 @@ const MainContent: FC = () => {
   }, []);
 
   return (
-    <ContentContainer>
+    <ContentContainer data-scroll-section>
       <Intro ref={introRef}>
+        {/* <TextSection ref={introRef}>
+          Hola,
+          <br /> I'm <Trigger ref={triggerRef}>Nathalia</Trigger> and I code
+          digital experiences
+        </TextSection> */}
+
         <TextSection>
           <TextLine ref={introLine1}>Hola,</TextLine>
         </TextSection>
