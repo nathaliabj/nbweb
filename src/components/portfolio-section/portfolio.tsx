@@ -7,6 +7,8 @@ import {
   Content,
   ImageOverlay,
   ImageContainer,
+  TitleWrapper,
+  Underline,
 } from "./portfolio.sc";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
@@ -14,14 +16,19 @@ import SideTitle from "../side-title/side-title";
 
 const DATA = [
   {
+    title: "Tray.io, Marketing website",
+    url: "https://tray.io",
+    image: "/photos/portfolio/marketing-website.png",
+  },
+  {
     title: "Tray.io, Documentation",
     url: "https://tray.io/documentation/",
-    image: "/photos/documentation.png",
+    image: "/photos/portfolio/documentation.png",
   },
   {
     title: "Tray.io, Academy",
     url: "https://tray.io/academy/",
-    image: "/photos/academy.png",
+    image: "/photos/portfolio/academy.png",
   },
 ];
 
@@ -43,9 +50,12 @@ const Portfolio: FC = () => {
         <Carousel {...carouselProps}>
           {DATA.map((project, i) => (
             <Project key={`portfolio-project-${i}`}>
-              <Title href={project.url} target="__blank">
-                {project.title}
-              </Title>
+              <TitleWrapper>
+                <Title href={project.url} target="__blank">
+                  {project.title}
+                </Title>
+                <Underline />
+              </TitleWrapper>
               <ImageContainer>
                 <Image src={project.image} alt={project.title} />
                 <ImageOverlay />
