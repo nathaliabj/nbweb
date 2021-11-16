@@ -1,7 +1,6 @@
 import Layout from "../src/components/layout/layout";
 import Header from "../src/components/header/header";
 import React, { useEffect, useRef, useState } from "react";
-import GlobalStyle from "../src/global-styles";
 import MainContent from "../src/components/main-content/main-content";
 import AboutMe from "../src/components/about-section/about";
 import Portfolio from "../src/components/portfolio-section/portfolio";
@@ -49,7 +48,7 @@ const Home = () => {
           ref={homeRef ? homeRef : null}
         >
           <HomeWrapper ref={homeRef} data-scroll-container>
-            <GlobalStyle />
+           
             <Layout>
               <Header />
               <MainContent />
