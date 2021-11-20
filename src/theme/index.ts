@@ -1,11 +1,18 @@
-import colors, { Colors } from "./variables/colors";
-
 export interface ThemeTypeProps {
-  colors: Colors;
+  background: string;
+  color: string;
+  highlight: string;
 }
 
-const theme = {
-  colors: colors,
+export const darkTheme = {
+  background: "#171A22",
+  color: "#fff",
+  highlight: "#DCB3FC",
 };
 
-export default theme;
+export const lightTheme = {
+  background: "#F5F1EF",
+  color: "#171A22",
+  highlight: "#AF4EFC",
+};
+

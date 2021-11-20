@@ -27,8 +27,7 @@ export const Text = styled.p<{ $isInView: boolean }>`
 `;
 
 export const Link = styled.a`
-  color: white;
+  color: ${({ theme }) => theme.color};
   text-decoration: none;
-  border-bottom: 3px solid white;
-  
-`
+  border-bottom: 3px solid ${({ theme }) => theme.color};
+`;

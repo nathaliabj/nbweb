@@ -16,7 +16,7 @@ export const Intro = styled.h1`
   position: absolute;
   transform: translateY(-50%);
   top: 50%;
-  color: white;
+  color: ${({ theme }) => theme.color};
 `;
 
 export const TextSection = styled.div`
@@ -42,7 +42,7 @@ export const Wrapper = styled.div`
 `;
 
 export const Trigger = styled.span`
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid ${({ theme }) => theme.color};
 
   &:hover {
     cursor: pointer;

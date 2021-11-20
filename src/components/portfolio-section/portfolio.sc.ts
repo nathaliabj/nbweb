@@ -46,7 +46,7 @@ export const TitleWrapper = styled.div`
   &:hover {
     ${Underline} {
       width: 100%;
-      background-color: #dcb3fc;
+      background-color: ${({ theme }) => theme.highlight};
     }
   }
 `;
@@ -57,7 +57,7 @@ export const Title = styled.a`
   font-weight: 300;
   text-decoration: none;
   text-align: left;
-  color: white;
+  color: ${({ theme }) => theme.color};
 `;
 
 export const Project = styled.div`

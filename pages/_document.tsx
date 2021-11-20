@@ -5,9 +5,8 @@ import Document, {
   Html,
   NextScript,
 } from "next/document";
-import { ServerStyleSheet, ThemeProvider } from "styled-components";
-import GlobalStyle from "../src/global-styles";
-import theme from "../src/theme";
+import { ServerStyleSheet } from "styled-components";
+
 
 /**
  * _document page. Customises the "Document" model to augment the app's HTML.
@@ -47,11 +46,9 @@ class MyDocument extends Document {
     <Html lang="en">
       <Head />
       <body>
-        <ThemeProvider theme={theme}>
-            <GlobalStyle />
-            <Main />
-            <NextScript />
-        </ThemeProvider>
+
+          <Main />
+          <NextScript />
       </body>
     </Html>
   );

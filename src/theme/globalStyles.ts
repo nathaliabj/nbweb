@@ -1,8 +1,19 @@
 import { createGlobalStyle } from "styled-components";
+import { ThemeTypeProps } from "./index";
 
-const GlobalStyle = createGlobalStyle`
+const GlobalStyles = createGlobalStyle<{ theme: ThemeTypeProps }>`
+    body {
+        font-family:'Visuelt';
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        background: ${({ theme }) => theme.background};
+        color: ${({ theme }) => theme.color};
+        transition: all 0.50s linear; 
+    }
 
-    @font-face {
+   @font-face {
         font-family: "Bigilla";
         src: url("/fonts/Bigilla/Bigilla.otf");
         font-style: normal;
@@ -24,17 +35,6 @@ const GlobalStyle = createGlobalStyle`
         font-style: normal;
         font-weight: 300;
         font-display: swap;
-    }
-
-    body {
-        display: block;
-        width: 100%;
-        height: 100vh;
-        background: #171A22;
-        color: white;
-        margin: 0;
-        padding: 0;
-        font-family: 'Visuelt';
     }
 
     .carousel .slider-wrapper {
@@ -81,4 +81,4 @@ const GlobalStyle = createGlobalStyle`
 
 `;
 
-export default GlobalStyle;
+export default GlobalStyles;
