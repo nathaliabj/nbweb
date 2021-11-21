@@ -40,6 +40,7 @@ const carouselProps = {
   showArrows: false,
   autoPlay: false,
   interval: 36000000,
+  showThumbs: false,
 };
 
 const Portfolio: FC = () => {
