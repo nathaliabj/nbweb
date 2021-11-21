@@ -49,14 +49,8 @@ const MainContent: FC = () => {
   }, []);
 
   return (
-    <ContentContainer data-scroll-section>
+    <ContentContainer>
       <Intro ref={introRef}>
-        {/* <TextSection ref={introRef}>
-          Hola,
-          <br /> I'm <Trigger ref={triggerRef}>Nathalia</Trigger> and I code
-          digital experiences
-        </TextSection> */}
-
         <TextSection>
           <TextLine ref={introLine1}>Hola,</TextLine>
         </TextSection>

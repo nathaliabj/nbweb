@@ -8,7 +8,7 @@ const GlobalStyles = createGlobalStyle<{ theme: ThemeTypeProps }>`
         height: 100vh;
         margin: 0;
         padding: 0;
-        background: ${({ theme }) => theme.background};
+        background-color: ${({ theme }) => theme.background};
         color: ${({ theme }) => theme.color};
         transition: all 0.50s linear; 
     }

@@ -23,3 +23,15 @@ export const Loader = styled.h1`
   margin: 0;
   line-height: 3.1875rem;
 `;
+
+export const Bbackground = styled.svg`
+  position: absolute;
+  top: 6em;
+  left: -24em;
+  z-index: -1;
+
+  & path {
+    fill: ${({ theme }) => theme.b};
+    opacity: ${({ theme }) => theme.opacity};
+  }
+`;

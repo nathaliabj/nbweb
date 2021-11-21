@@ -1,5 +1,5 @@
-import React, { FC, useEffect, useRef, useState } from "react";
-import { AboutContainer, ContentContainer, Link, Text } from "./about.sc";
+import React, { FC, useEffect, useRef } from "react";
+import { AboutContainer, ContentContainer,LinkWrapper, Link,Underline, Text } from "./about.sc";
 import SideTitle from "../side-title/side-title";
 import { animateParagraph } from "../../utils/animate-text";
 import { useInView } from "react-intersection-observer";
@@ -35,29 +35,38 @@ const AboutMe: FC = () => {
       <ContentContainer ref={ref}>
         <Text ref={textRef1} $isInView={inView}>
           Originally from{" "}
-          <Link
-            href="https://www.google.com/search?q=quindio+colombia&source=lnms&tbm=isch&sa=X&ved=2ahUKEwj5yeD2uMXwAhUN2BQKHZ3SA_0Q_AUoAnoECAEQBA&biw=1440&bih=716"
-            target="__blank"
-          >
-            Colombia
-          </Link>
+          <LinkWrapper>
+            <Link
+              href="https://www.google.com/search?q=quindio+colombia&source=lnms&tbm=isch&sa=X&ved=2ahUKEwj5yeD2uMXwAhUN2BQKHZ3SA_0Q_AUoAnoECAEQBA&biw=1440&bih=716"
+              target="__blank"
+            >
+              Colombia
+            </Link>
+            <Underline />
+          </LinkWrapper>
           , I moved to London 7 years ago. Passionate about travel, different
           cultures &amp; food, I entered the tech-scene 3 years ago as I taught
           myself how to code.
         </Text>
         <Text ref={textRef2} $isInView={inView}>
           Currently front-end engineering at{" "}
-          <Link href="https://tray.io/" target="__blank">
-            Tray.io
-          </Link>
+          <LinkWrapper>
+            <Link href="https://tray.io/" target="__blank">
+              Tray.io
+            </Link>
+            <Underline />
+          </LinkWrapper>
           , I enjoy creating well crafted experiences with a focus on good
           design.{" "}
         </Text>
         <Text ref={textRef3} $isInView={inView}>
           Read my thoughts on{" "}
-          <Link href="https://twitter.com/NathaliaBJurado" target="__blank">
-            Twitter
-          </Link>
+          <LinkWrapper>
+            <Link href="https://twitter.com/NathaliaBJurado" target="__blank">
+              Twitter
+            </Link>
+            <Underline />
+          </LinkWrapper>
           .
         </Text>
       </ContentContainer>
