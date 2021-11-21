@@ -7,7 +7,6 @@ import Document, {
 } from "next/document";
 import { ServerStyleSheet } from "styled-components";
 
-
 /**
  * _document page. Customises the "Document" model to augment the app's HTML.
  *
@@ -46,7 +45,6 @@ class MyDocument extends Document {
     <Html lang="en">
       <Head />
       <body>
-
           <Main />
           <NextScript />
       </body>
@@ -55,5 +53,3 @@ class MyDocument extends Document {
 }
 
 export default MyDocument;
-
-

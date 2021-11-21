@@ -30,7 +30,7 @@ export const Underline = styled.span`
   opacity: 0.7;
   top: 2rem;
   left: 0;
-  height: 2rem;
+  height: 1.5rem;
   width: 0;
   z-index: -1;
 

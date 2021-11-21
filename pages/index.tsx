@@ -1,11 +1,9 @@
 import Layout from "../src/components/layout/layout";
-import Header from "../src/components/header/header";
 import React, { useEffect, useRef, useState } from "react";
 import MainContent from "../src/components/main-content/main-content";
 import AboutMe from "../src/components/about-section/about";
 import Portfolio from "../src/components/portfolio-section/portfolio";
 import Links from "../src/components/links-section/links";
-import { LocomotiveScrollProvider } from "react-locomotive-scroll";
 import { LoaderWrapper, Loader, HomeWrapper } from "./home.sc";
 
 const Home = () => {
@@ -39,25 +37,14 @@ const Home = () => {
           <Loader>NB WEB</Loader>
         </LoaderWrapper>
       ) : (
-        <LocomotiveScrollProvider
-          options={{
-            smooth: true,
-            multiplier: 1,
-            class: "isReveal"
-          }}
-          ref={homeRef ? homeRef : null}
-        >
-          <HomeWrapper ref={homeRef} data-scroll-container>
-           
-            <Layout>
-              <Header />
+        <HomeWrapper ref={homeRef} data-scroll-container>
+          <Layout>
               <MainContent />
               <AboutMe />
               <Portfolio />
               <Links />
-            </Layout>
-          </HomeWrapper>
-        </LocomotiveScrollProvider>
+          </Layout>
+        </HomeWrapper>
       )}
     </>
   );

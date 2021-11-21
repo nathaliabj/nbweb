@@ -18,10 +18,10 @@ export const LinksWrapper = styled.div`
 `;
 
 export const Link = styled.a`
-  color: white;
+  color: ${({ theme }) => theme.color};
   line-height: 1;
   text-decoration: none;
-  border-bottom: 3px solid white;
+  border-bottom: 3px solid ${({ theme }) => theme.color};
   margin-bottom: 100px;
-  padding-top: .6rem;
-`
+  padding-top: 0.6rem;
+`;
