@@ -30,7 +30,7 @@ const AboutMe: FC = () => {
   }, [inView]);
 
   return (
-    <AboutContainer data-scroll-section>
+    <AboutContainer>
       <SideTitle>ABT</SideTitle>
       <ContentContainer ref={ref}>
         <Text ref={textRef1} $isInView={inView}>

@@ -9,7 +9,7 @@ interface HeaderProps {
 const Header: FC<HeaderProps> = ({ themeToggler }) => {
 
   return (
-    <HeaderContainer data-scroll-section>
+    <HeaderContainer>
       <Nb>NB</Nb>
       <ModeTrigger onClick={themeToggler}>//</ModeTrigger>
       <Year>© 2021</Year>

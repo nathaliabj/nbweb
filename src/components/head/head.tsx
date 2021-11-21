@@ -2,9 +2,9 @@ import NextHead from "next/head";
 import React, { FC } from "react";
 
 const Head: FC = () => (
-    <NextHead data-testid="docs-head">
+    <NextHead>
       <meta charSet="UTF-8" />
-      <title>Nathalia Buitrago </title>
+      <title>Nathalia Buitrago</title>
 
       <meta name="title" content="Nathalia Buitrago" />
       <meta

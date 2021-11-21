@@ -44,7 +44,7 @@ const carouselProps = {
 
 const Portfolio: FC = () => {
   return (
-    <PortfolioContainer data-scroll-section>
+    <PortfolioContainer>
       <SideTitle>WRK</SideTitle>
       <Content>
         <Carousel {...carouselProps}>
