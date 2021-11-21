@@ -13,7 +13,6 @@ export const HeaderContainer = styled.nav`
 export const Nb = styled.h1`
   font-size: 3.1875rem;
   font-family: Bigilla;
-  cursor: pointer;
   color: ${({ theme }) => theme.highlight};
   margin: 0;
   line-height: 3.1875rem;

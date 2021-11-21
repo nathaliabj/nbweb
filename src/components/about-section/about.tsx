@@ -45,7 +45,7 @@ const AboutMe: FC = () => {
             <Underline />
           </LinkWrapper>
           , I moved to London 7 years ago. Passionate about travel, different
-          cultures &amp; food, I entered the tech-scene 3 years ago as I taught
+          cultures &amp; food, I entered the tech-scene 3+ years ago as I taught
           myself how to code.
         </Text>
         <Text ref={textRef2} $isInView={inView}>
@@ -60,10 +60,10 @@ const AboutMe: FC = () => {
           design.{" "}
         </Text>
         <Text ref={textRef3} $isInView={inView}>
-          Read my thoughts on{" "}
+          Get my{" "}
           <LinkWrapper>
-            <Link href="https://twitter.com/NathaliaBJurado" target="__blank">
-              Twitter
+            <Link href="/Nathi-cv.pdf" download="nathalia-buitrago">
+              CV
             </Link>
             <Underline />
           </LinkWrapper>

@@ -10,7 +10,7 @@ const Gallery: FC<Props> = ({ isActive }) => {
   const imageRef = useRef<HTMLImageElement>(null);
 
   const imagesSrc = [
-    "/photos/nathalia.png",
+    "/photos/nathalia.jpg",
     "/photos/1.JPG",
     "/photos/2.JPG",
     "/photos/3.JPG",
@@ -26,6 +26,7 @@ const Gallery: FC<Props> = ({ isActive }) => {
     "/photos/13.jpg",
     "/photos/14.jpg",
     "/photos/15.JPG",
+    "/photos/16.jpg",
     "/photos/17.jpg",
     "/photos/18.jpg",
     "/photos/19.jpg",
@@ -35,6 +36,12 @@ const Gallery: FC<Props> = ({ isActive }) => {
     "/photos/23.jpg",
     "/photos/24.jpg",
     "/photos/25.jpg",
+    "/photos/26.png",
+    "/photos/27.jpg",
+    "/photos/28.jpg",
+    "/photos/29.jpg",
+    "/photos/30.jpg",
+    "/photos/31.jpg",
   ];
 
   let intervalID;
@@ -63,7 +70,7 @@ const Gallery: FC<Props> = ({ isActive }) => {
       <GalleryWrapper>
         <img
           ref={imageRef}
-          src="/photos/nathalia.png"
+          src="/photos/nathalia.jpg"
           alt="Nathalia Buitrago"
           width={496}
           height={550}
