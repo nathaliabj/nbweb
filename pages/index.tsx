@@ -4,7 +4,7 @@ import MainContent from "../src/components/main-content/main-content";
 import AboutMe from "../src/components/about-section/about";
 import Portfolio from "../src/components/portfolio-section/portfolio";
 import Links from "../src/components/links-section/links";
-import { LoaderWrapper, Loader, HomeWrapper, Bbackground } from "./home.sc";
+import { LoaderWrapper, Loader, HomeWrapper, Bbackground } from "../src/components/home.sc";
 
 const Home = () => {
   const [preloader, setPreloader] = useState<Boolean>(true);

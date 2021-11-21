@@ -14,11 +14,6 @@ export const ContentContainer = styled.div`
 export const Text = styled.p<{ $isInView: boolean }>`
   opacity: 0;
 
-  & > div {
-    opacity: 0;
-    transform: translate(0);
-  }
-
   ${({ $isInView }) =>
     $isInView &&
     css`

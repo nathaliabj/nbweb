@@ -14,7 +14,7 @@ import { gsap } from "gsap";
 // };
 
 export const animateEntry = (element, delay) => {
-  const from = { y: 150 };
+  const from = { y: 150, opacity: 0 };
   const to = {
     duration: 0.3,
     y: 0,

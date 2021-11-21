@@ -21,7 +21,7 @@ const MainContent: FC = () => {
 
   // Check if trigger is hovered
   useEffect(() => {
-    if (!triggerRef.current) return;
+    if (!triggerRef.current) return null;
 
     const { current } = triggerRef;
 
@@ -38,6 +38,7 @@ const MainContent: FC = () => {
     });
 
     return () => current.removeEventListener("mouseover", listener);
+  
   }, []);
 
   // animate  intro

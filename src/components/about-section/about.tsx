@@ -1,10 +1,8 @@
 import React, { FC, useEffect, useRef } from "react";
 import { AboutContainer, ContentContainer,LinkWrapper, Link,Underline, Text } from "./about.sc";
 import SideTitle from "../side-title/side-title";
-import { animateParagraph } from "../../utils/animate-text";
+import { animateEntry } from "../../utils/animate-text";
 import { useInView } from "react-intersection-observer";
-
-import SplitText from "../../utils/Split3.min.js";
 
 const AboutMe: FC = () => {
   const [ref, inView, entry] = useInView({
@@ -19,13 +17,10 @@ const AboutMe: FC = () => {
 
   useEffect(() => {
     if (inView && entry) {
-      const split1 = new SplitText(textRef1.current, { type: "lines" });
-      const split2 = new SplitText(textRef2.current, { type: "lines" });
-      const split3 = new SplitText(textRef3.current, { type: "lines" });
 
-      animateParagraph(split1.lines, 0.1);
-      animateParagraph(split2.lines, 0.1);
-      animateParagraph(split3.lines, 0.1);
+      animateEntry(textRef1.current, 0.1);
+      animateEntry(textRef2.current, 0.3);
+      animateEntry(textRef3.current, 0.5);
     }
   }, [inView]);
 
