@@ -7,7 +7,8 @@ export const HeaderContainer = styled.nav`
   height: 3.75em;
   padding-top: 2.5rem;
   max-width: 80rem;
-  margin: 0 auto 1.4375rem;
+  padding: 0 2em;
+  margin: 3.3125rem auto 1.4375rem;
 `;
 
 export const Nb = styled.h1`
@@ -19,7 +20,7 @@ export const Nb = styled.h1`
 `;
 
 export const Year = styled.div`
-  width: 5.5rem;
+  width: fit-content;
   color: ${({ theme }) => theme.color};
   font-size: 1.25rem;
   text-align: right;

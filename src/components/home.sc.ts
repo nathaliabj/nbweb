@@ -26,7 +26,7 @@ export const Loader = styled.h1`
 
 export const Bbackground = styled.svg`
   position: absolute;
-  top: 6em;
+  top: 7em;
   left: -24em;
   z-index: -1;
 

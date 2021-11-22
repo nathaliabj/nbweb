@@ -5,10 +5,14 @@ export const AboutContainer = styled.section`
 `;
 
 export const ContentContainer = styled.div`
-  font-size: 2.4rem;
+  font-size: 1.5rem;
   line-height: 1.5;
   max-width: 64.875rem;
-  margin-left: 14.5rem;
+
+  @media screen and (min-width: 768px) {
+    margin-left: 14.5rem;
+    font-size: 2.4rem;
+  }
 `;
 
 export const Text = styled.p<{ $isInView: boolean }>`

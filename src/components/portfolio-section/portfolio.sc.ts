@@ -7,15 +7,21 @@ export const PortfolioContainer = styled.section`
 export const Content = styled.div`
   font-size: 2.5rem;
   line-height: 1.5;
-  margin-left: 14.5rem;
+
+  @media screen and (min-width: 768px) {
+    margin-left: 14.5rem;
+  }
 `;
 
 export const ImageContainer = styled.div`
-  width: 55.313rem;
-  height: 34.375em;
+  width: 100%;
   overflow: hidden;
   height: auto;
   position: relative;
+
+  @media screen and (min-width: 768px) {
+    width: 55.313rem;
+  }
 `;
 
 export const Image = styled.img`
@@ -40,7 +46,7 @@ export const Underline = styled.span`
 export const TitleWrapper = styled.div`
   position: relative;
   width: fit-content;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   transition: all 0.3s ease;
 
   &:hover {
@@ -49,25 +55,37 @@ export const TitleWrapper = styled.div`
       background-color: ${({ theme }) => theme.highlight};
     }
   }
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 2rem;
+  }
 `;
 
 export const Title = styled.a`
-  font-size: 2.5rem;
+  font-size: 1.8rem;
   line-height: 1.5;
   font-weight: 300;
   text-decoration: none;
   text-align: left;
   color: ${({ theme }) => theme.color};
+
+  @media screen and (min-width: 768px) {
+    font-size: 2.5rem;
+  }
 `;
 
 export const Project = styled.div`
-  margin: 0 5rem 0 0;
+  margin: 0;
   cursor: pointer;
   display: flex;
   text-decoration: none;
   justify-content: space-between;
   align-content: start;
   flex-direction: column;
+
+  @media screen and (min-width: 768px) {
+    margin: 0 5rem 0 0;
+  }
 `;
 
 export const ImageOverlay = styled.div`
@@ -79,3 +97,5 @@ export const ImageOverlay = styled.div`
   height: 100%;
   opacity: 0.3;
 `;
+
+export const MobilePortfolioContainer = styled.div``;

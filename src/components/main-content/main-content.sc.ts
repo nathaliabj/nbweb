@@ -9,14 +9,19 @@ export const ContentContainer = styled.main`
 
 export const Intro = styled.h1`
   font-family: Bigilla;
-  font-size: 5.5rem;
+  font-size: 4rem;
   line-height: 6.6rem;
-  margin: 0 0 0 14.5rem;
+  margin: auto;
   max-width: 56.25rem;
   position: absolute;
   transform: translateY(-50%);
   top: 50%;
   color: ${({ theme }) => theme.color};
+
+  @media screen and (min-width: 768px) {
+    font-size: 5.5rem;
+    margin: 0 0 0 14.5rem;
+  }
 `;
 
 export const TextSection = styled.div`

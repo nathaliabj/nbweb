@@ -6,10 +6,14 @@ export const LinksContainer = styled.section`
 `;
 
 export const Content = styled.div`
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   line-height: 1.5;
   max-width: 64.875rem;
-  margin-left: 14.5rem;
+
+  @media screen and (min-width: 768px) {
+    margin-left: 14.5rem;
+    font-size: 2.5rem;
+  }
 `;
 
 export const LinksWrapper = styled.div`

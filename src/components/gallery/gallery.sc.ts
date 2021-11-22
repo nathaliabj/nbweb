@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const GalleryWrapper = styled.div`
-  width: 34.25rem;
-  height: 34.25rem;
+  width: 20rem;
+  height: 20rem;
   position: relative;
   z-index: 0;
 
@@ -12,6 +12,11 @@ export const GalleryWrapper = styled.div`
     object-fit: cover;
     height: 100%;
     transform: scale(1.2);
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 34.25rem;
+    height: 34.25rem;
   }
 `;
 
