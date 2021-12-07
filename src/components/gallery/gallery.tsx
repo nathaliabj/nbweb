@@ -1,6 +1,6 @@
 import { FC, useRef, useEffect } from "react";
 import { GalleryWrapper, Overlay } from "./gallery.sc";
-import imagesSrc from "./imgSrc.json"
+import imagesSrc from "./imgSrc.json";
 
 interface Props {
   isActive: boolean;
@@ -12,6 +12,14 @@ const Gallery: FC<Props> = ({ isActive }) => {
   let intervalID;
   let index = 0;
 
+  
+ const updateSrc = async () => {
+   let src = imagesSrc[index];
+
+   index === imagesSrc.length ? (index = 0) : index++;
+   imageRef?.current.setAttribute("src", src);
+ };
+
   useEffect(() => {
     if (isActive) {
       intervalID = setInterval(updateSrc, 130);
@@ -21,15 +29,9 @@ const Gallery: FC<Props> = ({ isActive }) => {
       clearInterval(intervalID);
       imageRef?.current.setAttribute("src", imagesSrc[0]);
     };
-  }, [isActive]);
+  }, [isActive, updateSrc]);
 
-  const updateSrc = () => {
-    let src = imagesSrc[index];
-
-    index === imagesSrc.length ? (index = 0) : index++;
-    imageRef?.current.setAttribute("src", src);
-  };
-
+ 
   return (
     <>
       <GalleryWrapper>
